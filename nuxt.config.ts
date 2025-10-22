@@ -21,8 +21,9 @@ export default defineNuxtConfig({
     ui: {
       colors: {
         primary: "rose",
+        secondary: "fuchsia",
         neutral: "stone",
-        tertiary: "gray",
+        tertiary: "stone",
       },
     },
   },

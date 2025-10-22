@@ -9,11 +9,11 @@
       </template>
     </UHeader>
 
-    <UMain>
-      <UContainer class="py-10 gap-2 flex flex-col items-center justify-center">
+    <UMain class="bg-stone-800">
+      <UContainer class="pt-10 gap-2 flex flex-col items-center justify-center">
         <USeparator class=" w-40">
           <template #default>
-            <span class="text-xs font-light text-gray-500">Tema</span>
+            <span class="text-xs font-light text-stone-500">Tema</span>
           </template>
         </USeparator>
         <UBadge icon="bx:world" size="xl" class="px-5 rounded-full" color="primary" variant="subtle">Geral
@@ -22,10 +22,18 @@
 
       <UContainer class="mb-10 flex flex-col gap-5 items-center justify-center">
 
-        <NuxtImg src="https://picsum.photos/250/360" />
+        <img :src="`/forca/${forcaTentativa}.png`" class="h-50 sm:h-60" />
 
-        <div>
-          letras q ja foram {{ jaFoi }}
+        <div class="flex flex-wrap gap-1">
+          <div v-for="(letraPalavra, i) in palavra" key="i">
+            <UBadge v-if="!chutes.some(l => letraPalavra.includes(l))" color="tertiary" variant="subtle" class="text-xl font-bold text-white
+              w-8 h-8 flex items-center justify-center p-0">
+            </UBadge>
+            <UBadge v-if="chutes.some(l => letraPalavra.includes(l))" color="primary" variant="subtle" class="text-xl font-bold text-white
+              w-8 h-8 flex items-center justify-center p-0">
+              {{ letraPalavra }}
+            </UBadge>
+          </div>
         </div>
 
 
@@ -34,11 +42,16 @@
       <UContainer class="flex flex-wrap gap-2 items-center justify-center">
 
         <div v-for="letra in letras" key="id">
-          <UButton @click="chutar(letra)" v-if="letra.status" color="primary" class="text-xl font-bold text-white
+          <UButton @click="chutar(letra)" v-if="letra.status === 'padrao'" :disabled="perdeu || ganhou" color="primary"
+            class="text-xl font-bold text-white
         w-8 h-8 flex items-center justify-center p-0">
             {{ letra.letra }}
           </UButton>
-          <UButton v-if="!letra.status" color="tertiary" disabled="" class="text-xl font-bold text-white
+          <UButton v-if="letra.status === 'naoTem'" color="tertiary" disabled="" class="text-xl font-bold text-white
+        w-8 h-8 flex items-center justify-center p-0">
+            {{ letra.letra }}
+          </UButton>
+          <UButton v-if="letra.status === 'tem'" color="secondary" disabled="" class="text-xl font-bold text-white
         w-8 h-8 flex items-center justify-center p-0">
             {{ letra.letra }}
           </UButton>
@@ -47,8 +60,8 @@
       </UContainer>
     </UMain>
 
-    <USeparator icon="ion:sparkles" />
-    <UFooter>
+    <USeparator class="bg-stone-800" color="tertiary" icon="fluent-emoji-flat:motor-scooter" />
+    <UFooter class="bg-stone-800">
       <template #default>
       </template>
 
@@ -71,41 +84,81 @@
 <script setup>
 
 import { ref } from 'vue';
-const jaFoi = ref('')
+
+const palavra = ref("AMAR")
+const letrasCorretas = ref([])
+
+function carregarLetrasCorretas() {
+  for (let p in palavra.value) {
+    if (!(letrasCorretas.value.includes(palavra.value[p]))) {
+      letrasCorretas.value.push(palavra.value[p])
+    }
+  }
+}
+
+onMounted(() => {
+  carregarLetrasCorretas();
+  console.log(letrasCorretas.value)
+})
+
+const acertos = ref(0)
+
+const forcaTentativa = ref(0)
+const chutes = ref([])
+const perdeu = ref(false)
+const ganhou = ref(false)
 
 const letras = ref([
-  { id: 1, letra: "A", status: true },
-  { id: 2, letra: "B", status: true },
-  { id: 3, letra: "C", status: true },
-  { id: 4, letra: "D", status: true },
-  { id: 5, letra: "E", status: true },
-  { id: 6, letra: "F", status: true },
-  { id: 7, letra: "G", status: true },
-  { id: 8, letra: "H", status: true },
-  { id: 9, letra: "I", status: true },
-  { id: 10, letra: "J", status: true },
-  { id: 11, letra: "K", status: true },
-  { id: 12, letra: "L", status: true },
-  { id: 13, letra: "M", status: true },
-  { id: 14, letra: "N", status: true },
-  { id: 15, letra: "O", status: true },
-  { id: 16, letra: "P", status: true },
-  { id: 17, letra: "Q", status: true },
-  { id: 18, letra: "R", status: true },
-  { id: 19, letra: "S", status: true },
-  { id: 20, letra: "T", status: true },
-  { id: 21, letra: "U", status: true },
-  { id: 22, letra: "V", status: true },
-  { id: 23, letra: "W", status: true },
-  { id: 24, letra: "X", status: true },
-  { id: 25, letra: "Y", status: true },
-  { id: 26, letra: "Z", status: true }
+  { id: 1, letra: "A", status: 'padrao' },
+  { id: 2, letra: "B", status: 'padrao' },
+  { id: 3, letra: "C", status: 'padrao' },
+  { id: 4, letra: "D", status: 'padrao' },
+  { id: 5, letra: "E", status: 'padrao' },
+  { id: 6, letra: "F", status: 'padrao' },
+  { id: 7, letra: "G", status: 'padrao' },
+  { id: 8, letra: "H", status: 'padrao' },
+  { id: 9, letra: "I", status: 'padrao' },
+  { id: 10, letra: "J", status: 'padrao' },
+  { id: 11, letra: "K", status: 'padrao' },
+  { id: 12, letra: "L", status: 'padrao' },
+  { id: 13, letra: "M", status: 'padrao' },
+  { id: 14, letra: "N", status: 'padrao' },
+  { id: 15, letra: "O", status: 'padrao' },
+  { id: 16, letra: "P", status: 'padrao' },
+  { id: 17, letra: "Q", status: 'padrao' },
+  { id: 18, letra: "R", status: 'padrao' },
+  { id: 19, letra: "S", status: 'padrao' },
+  { id: 20, letra: "T", status: 'padrao' },
+  { id: 21, letra: "U", status: 'padrao' },
+  { id: 22, letra: "V", status: 'padrao' },
+  { id: 23, letra: "W", status: 'padrao' },
+  { id: 24, letra: "X", status: 'padrao' },
+  { id: 25, letra: "Y", status: 'padrao' },
+  { id: 26, letra: "Z", status: 'padrao' }
 ]);
 
 function chutar(letra) {
+  for (let p in letrasCorretas.value) {
+    if (letra.letra === letrasCorretas.value[p]) {
+      chutes.value.push(letra.letra)
+      letra.status = "tem"
+      acertos.value += 1;
+      if (acertos.value === letrasCorretas.value.length) {
+        ganhou.value = true
+      }
+      return
+    }
+  }
 
-  letra.status = !letra.status
-  jaFoi.value += " " + letra.letra
+  letra.status = "naoTem"
+  forcaTentativa.value += 1
+  if (forcaTentativa.value === 6) {
+    perdeu.value = true
+  }
+
+
+
+
 }
 
 </script>
