@@ -85,7 +85,7 @@
 
 import { ref } from 'vue';
 
-const palavra = ref("AMAR")
+const palavra = ref("ANIMAÇÃO")
 const letrasCorretas = ref([])
 
 function carregarLetrasCorretas() {
@@ -109,27 +109,27 @@ const perdeu = ref(false)
 const ganhou = ref(false)
 
 const letras = ref([
-  { id: 1, letra: "A", status: 'padrao' },
+  { id: 1, letra: "A", status: 'padrao', alt: ['Á', 'À', 'Ã', 'Â', 'Ä'] },
   { id: 2, letra: "B", status: 'padrao' },
-  { id: 3, letra: "C", status: 'padrao' },
+  { id: 3, letra: "C", status: 'padrao', alt: ['Ç'] },
   { id: 4, letra: "D", status: 'padrao' },
-  { id: 5, letra: "E", status: 'padrao' },
+  { id: 5, letra: "E", status: 'padrao', alt: ['É', 'È', 'Ê', 'Ë'] },
   { id: 6, letra: "F", status: 'padrao' },
   { id: 7, letra: "G", status: 'padrao' },
   { id: 8, letra: "H", status: 'padrao' },
-  { id: 9, letra: "I", status: 'padrao' },
+  { id: 9, letra: "I", status: 'padrao', alt: ['Í', 'Ì', 'Î', 'Ï'] },
   { id: 10, letra: "J", status: 'padrao' },
   { id: 11, letra: "K", status: 'padrao' },
   { id: 12, letra: "L", status: 'padrao' },
   { id: 13, letra: "M", status: 'padrao' },
   { id: 14, letra: "N", status: 'padrao' },
-  { id: 15, letra: "O", status: 'padrao' },
+  { id: 15, letra: "O", status: 'padrao', alt: ['Ó', 'Ò', 'Õ', 'Ô', 'Ö'] },
   { id: 16, letra: "P", status: 'padrao' },
   { id: 17, letra: "Q", status: 'padrao' },
   { id: 18, letra: "R", status: 'padrao' },
   { id: 19, letra: "S", status: 'padrao' },
   { id: 20, letra: "T", status: 'padrao' },
-  { id: 21, letra: "U", status: 'padrao' },
+  { id: 21, letra: "U", status: 'padrao', alt: ['Ú', 'Ù', 'Û', 'Ü'] },
   { id: 22, letra: "V", status: 'padrao' },
   { id: 23, letra: "W", status: 'padrao' },
   { id: 24, letra: "X", status: 'padrao' },
@@ -146,8 +146,25 @@ function chutar(letra) {
       if (acertos.value === letrasCorretas.value.length) {
         ganhou.value = true
       }
+    }
+
+    for (let lc in letrasCorretas.value) {
+      console.log(lc)
+      if (letra.alt.includes(letrasCorretas.value[lc])) {
+        chutes.value.push(letrasCorretas.value[lc])
+        letra.status = "tem"
+        acertos.value += 1;
+        if (acertos.value === letrasCorretas.value.length) {
+          ganhou.value = true
+        }
+
+      }
+    }
+
+    if (letra.status) {
       return
     }
+
   }
 
   letra.status = "naoTem"
