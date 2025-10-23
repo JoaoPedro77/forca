@@ -18,13 +18,13 @@
             <span v-if="ganhoubloqueio" class="text-xs font-light text-stone-500">Ganhou!!!</span>
           </template>
         </USeparator>
-        <UBadge v-if="!perdeubloqueio && !ganhoubloqueio" icon="bx:world" size="xl" class="px-5 rounded-full"
-          color="primary" variant="subtle">
-          Geral
+        <UBadge v-if="!perdeubloqueio && !ganhoubloqueio" icon="icon-park-twotone:honey" size="xl"
+          class="px-5 rounded-full" color="primary" variant="subtle">
+          Mariii
         </UBadge>
         <UBadge v-if="perdeubloqueio" icon="streamline-plump:skull-2-solid" size="lg" class="px-4 rounded-full"
           color="tertiary" variant="subtle">
-          A palavra era: {{ palavra }}</UBadge>
+          A {{ palavraOuFrase }} era: {{ palavra }}</UBadge>
 
         <UBadge v-if="ganhoubloqueio" icon="solar:confetti-bold-duotone" size="lg" class="px-4 rounded-full"
           color="secondary" variant="subtle">
@@ -37,19 +37,24 @@
 
         <div class="flex flex-wrap gap-1">
           <div v-for="(letraPalavra, i) in palavra" key="i">
-            <UBadge v-if="!chutes.some(l => letraPalavra.includes(l))" color="tertiary" variant="subtle" class="text-xl font-bold text-white
+            <UBadge v-if="!chutes.some(l => letraPalavra.includes(l)) && letraPalavra != ' '" color="tertiary"
+              variant="subtle" class="text-xl font-bold text-white
               w-8 h-8 flex items-center justify-center p-0">
             </UBadge>
-            <UBadge v-if="chutes.some(l => letraPalavra.includes(l))" color="primary" variant="subtle" class="text-xl font-bold text-white
+            <UBadge v-if="chutes.some(l => letraPalavra.includes(l)) && letraPalavra != ' '" color="primary"
+              variant="subtle" class="text-xl font-bold text-white
               w-8 h-8 flex items-center justify-center p-0">
               {{ letraPalavra }}
             </UBadge>
+            <div v-if="letraPalavra == ' '" class="w-8 h-8">
+            </div>
           </div>
         </div>
 
 
 
-        <UButton @click="tentarNovamente" v-if="ganhoubloqueio || perdeubloqueio" color="primary" class="text-xl font-bold text-white
+        <UButton icon="material-symbols:replay-rounded" @click="tentarNovamente" v-if="ganhoubloqueio || perdeubloqueio"
+          color="primary" class="text-md font-bold text-white
           px-2 flex items-center justify-center">
           Jogar Novamente
         </UButton>
@@ -79,12 +84,23 @@
       <UModal :open="ganhou" :close="{ onClick: () => ganhou = false }">
         <template #title>
           <div class="flex items-center justify-center gap-2">
-            Parabéns
+            Parabéns, voce acertou!
             <Icon name="solar:confetti-bold-duotone" />
           </div>
         </template>
         <template #body>
-          <Placeholder class="h-48 m-4" />
+          <div class="flex flex-col gap-2 items-center justify-center">
+            <UBadge icon="streamline-plump:balloon-remix" size="xl" class="px-4 rounded-full" color="primary"
+              variant="subtle">
+              A {{ palavraOuFrase }} era: {{ palavra }}
+            </UBadge>
+            <img src="/forca/7.png" class="h-50" />
+            <UButton icon="material-symbols:replay-rounded" @click="tentarNovamente"
+              v-if="ganhoubloqueio || perdeubloqueio" color="primary" class="mt-7 text-md font-bold text-white
+            px-2 flex items-center justify-center">
+              Jogar Novamente
+            </UButton>
+          </div>
         </template>
       </UModal>
 
@@ -92,31 +108,34 @@
         <template #title>
           <div class="flex items-center justify-center gap-2">
 
-            <Icon name="streamline-plump:skull-2-solid" />
-            A palavra era: {{ palavra }}
+            <Icon name="game-icons:pirate-grave" />
+            Que pena, Você perdeu...
           </div>
         </template>
         <template #body>
-          <Placeholder class="h-48 m-4" />
+          <div class="flex flex-col gap-2 items-center justify-center">
+            <UBadge icon="streamline-plump:skull-2-solid" size="xl" class="px-4 rounded-full" color="tertiary"
+              variant="subtle">
+              A {{ palavraOuFrase }} era: {{ palavra }}
+            </UBadge>
+            <img src="/forca/6.png" class="h-50 pl-7" />
+            <UButton icon="material-symbols:replay-rounded" @click="tentarNovamente"
+              v-if="ganhoubloqueio || perdeubloqueio" color="primary" class="mt-7 text-md font-bold text-white
+            px-2 flex items-center justify-center">
+              Jogar Novamente
+            </UButton>
+          </div>
         </template>
       </UModal>
-
-
     </UMain>
-
-
 
     <USeparator class="bg-stone-800" color="tertiary" icon="fluent-emoji-high-contrast:motor-scooter" />
     <UFooter class="bg-stone-800">
       <template #default>
       </template>
-
       <template #left>
         <p class="text-muted text-sm">©JoaoJ {{ new Date().getFullYear() }}</p>
       </template>
-
-
-
       <template #right>
         <UButton icon="i-simple-icons-instagram" color="neutral" variant="ghost"
           to="https://www.instagram.com/joaoj_pedroo/" target="_blank" aria-label="Instagram" />
@@ -124,6 +143,8 @@
           target="_blank" aria-label="GitHub" />
       </template>
     </UFooter>
+
+
   </UApp>
 </template>
 
@@ -131,30 +152,20 @@
 
 import { ref } from 'vue';
 
-const palavra = ref("")
-const letrasCorretas = ref([])
+const palavra = ref("");
+const palavraOuFrase = ref("");;
 
-function carregarLetrasCorretas() {
-  for (let p in palavra.value) {
-    if (!(letrasCorretas.value.includes(palavra.value[p]))) {
-      letrasCorretas.value.push(palavra.value[p])
-    }
-  }
-}
+const letrasCorretas = ref([]);
 
-onMounted(() => {
-  gerarPalavra()
-  carregarLetrasCorretas();
-})
+const acertos = ref(0);
 
-const acertos = ref(0)
+const forcaTentativa = ref(0);
+const chutes = ref([]);
 
-const forcaTentativa = ref(0)
-const chutes = ref([])
-const perdeu = ref(false)
-const perdeubloqueio = ref(false)
-const ganhou = ref(false)
-const ganhoubloqueio = ref(false)
+const perdeu = ref(false);
+const perdeubloqueio = ref(false);
+const ganhou = ref(false);
+const ganhoubloqueio = ref(false);
 
 const letras = ref([
   { id: 1, letra: "A", status: 'padrao', alt: ['Á', 'À', 'Ã', 'Â', 'Ä'] },
@@ -185,6 +196,17 @@ const letras = ref([
   { id: 26, letra: "Z", status: 'padrao', alt: [''] }
 ]);
 
+//poe as letras corretas na array letrasCorretas
+function carregarLetrasCorretas() {
+  for (let p in palavra.value) {
+    if (!(letrasCorretas.value.includes(palavra.value[p])) && palavra.value[p] != ' ') {
+      letrasCorretas.value.push(palavra.value[p])
+    }
+  }
+  console.log(letrasCorretas)
+}
+
+//verifica se tem as letras que foram chutadas
 function chutar(letra) {
   for (let p in letrasCorretas.value) {
     if (letra.letra === letrasCorretas.value[p]) {
@@ -194,6 +216,7 @@ function chutar(letra) {
       if (acertos.value === letrasCorretas.value.length) {
         ganhou.value = true
         ganhoubloqueio.value = true
+        forcaTentativa.value = 7
       }
     }
 
@@ -205,8 +228,8 @@ function chutar(letra) {
         if (acertos.value === letrasCorretas.value.length) {
           ganhou.value = true
           ganhoubloqueio.value = true
+          forcaTentativa.value = 7
         }
-        break;
       }
     }
     if (letra.status == "tem") { break }
@@ -223,10 +246,18 @@ function chutar(letra) {
 
 }
 
+// gera a palavra da vez
 function gerarPalavra() {
-  palavra.value = "TESTE"
+  palavra.value = "teste"
+  palavra.value = palavra.value.toUpperCase();
+  if (palavra.value.includes(' ')) {
+    palavraOuFrase.value = "frase"
+  } else {
+    palavraOuFrase.value = "palavra"
+  }
 }
 
+//reinicia valores pra tentar novamente.
 function tentarNovamente() {
 
   for (let letra in letras.value) {
@@ -248,5 +279,11 @@ function tentarNovamente() {
   console.log(letrasCorretas);
 
 }
+
+onMounted(() => {
+  gerarPalavra()
+  carregarLetrasCorretas();
+})
+
 
 </script>
