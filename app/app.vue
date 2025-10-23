@@ -9,16 +9,26 @@
       </template>
     </UHeader>
 
-    <UMain class="bg-stone-800 select-none drag">
-
+    <UMain class="bg-stone-800 select-none">
       <UContainer class="pt-10 gap-2 flex flex-col items-center justify-center">
         <USeparator class=" w-40">
           <template #default>
-            <span class="text-xs font-light text-stone-500">Tema</span>
+            <span v-if="!perdeubloqueio && !ganhoubloqueio" class="text-xs font-light text-stone-500">Tema</span>
+            <span v-if="perdeubloqueio" class="text-xs font-light text-stone-500">Perdeu...</span>
+            <span v-if="ganhoubloqueio" class="text-xs font-light text-stone-500">Ganhou!!!</span>
           </template>
         </USeparator>
-        <UBadge icon="bx:world" size="xl" class="px-5 rounded-full" color="primary" variant="subtle">Geral
+        <UBadge v-if="!perdeubloqueio && !ganhoubloqueio" icon="bx:world" size="xl" class="px-5 rounded-full"
+          color="primary" variant="subtle">
+          Geral
         </UBadge>
+        <UBadge v-if="perdeubloqueio" icon="streamline-plump:skull-2-solid" size="lg" class="px-4 rounded-full"
+          color="tertiary" variant="subtle">
+          A palavra era: {{ palavra }}</UBadge>
+
+        <UBadge v-if="ganhoubloqueio" icon="solar:confetti-bold-duotone" size="lg" class="px-4 rounded-full"
+          color="secondary" variant="subtle">
+          Parabéns !!!</UBadge>
       </UContainer>
 
       <UContainer class="mb-10 flex flex-col gap-5 items-center justify-center">
@@ -38,13 +48,17 @@
         </div>
 
 
-      </UContainer>
 
+        <UButton @click="tentarNovamente" v-if="ganhoubloqueio || perdeubloqueio" color="primary" class="text-xl font-bold text-white
+          px-2 flex items-center justify-center">
+          Jogar Novamente
+        </UButton>
+      </UContainer>
       <UContainer class="flex flex-wrap gap-2 items-center justify-center">
 
         <div v-for="letra in letras" key="id">
-          <UButton @click="chutar(letra)" v-if="letra.status === 'padrao'" :disabled="perdeu || ganhou" color="primary"
-            class="text-xl font-bold text-white
+          <UButton @click="chutar(letra)" v-if="letra.status === 'padrao'" :disabled="perdeubloqueio || ganhoubloqueio"
+            color="primary" class="text-xl font-bold text-white
         w-8 h-8 flex items-center justify-center p-0">
             {{ letra.letra }}
           </UButton>
@@ -59,9 +73,40 @@
         </div>
 
       </UContainer>
+
+      <!-- MODAIS -->
+
+      <UModal :open="ganhou" :close="{ onClick: () => ganhou = false }">
+        <template #title>
+          <div class="flex items-center justify-center gap-2">
+            Parabéns
+            <Icon name="solar:confetti-bold-duotone" />
+          </div>
+        </template>
+        <template #body>
+          <Placeholder class="h-48 m-4" />
+        </template>
+      </UModal>
+
+      <UModal :open="perdeu" :close="{ onClick: () => perdeu = false }">
+        <template #title>
+          <div class="flex items-center justify-center gap-2">
+
+            <Icon name="streamline-plump:skull-2-solid" />
+            A palavra era: {{ palavra }}
+          </div>
+        </template>
+        <template #body>
+          <Placeholder class="h-48 m-4" />
+        </template>
+      </UModal>
+
+
     </UMain>
 
-    <USeparator class="bg-stone-800" color="tertiary" icon="fluent-emoji-flat:motor-scooter" />
+
+
+    <USeparator class="bg-stone-800" color="tertiary" icon="fluent-emoji-high-contrast:motor-scooter" />
     <UFooter class="bg-stone-800">
       <template #default>
       </template>
@@ -86,7 +131,7 @@
 
 import { ref } from 'vue';
 
-const palavra = ref("ANIMAÇÃO")
+const palavra = ref("")
 const letrasCorretas = ref([])
 
 function carregarLetrasCorretas() {
@@ -98,8 +143,8 @@ function carregarLetrasCorretas() {
 }
 
 onMounted(() => {
+  gerarPalavra()
   carregarLetrasCorretas();
-  console.log(letrasCorretas.value)
 })
 
 const acertos = ref(0)
@@ -107,7 +152,9 @@ const acertos = ref(0)
 const forcaTentativa = ref(0)
 const chutes = ref([])
 const perdeu = ref(false)
+const perdeubloqueio = ref(false)
 const ganhou = ref(false)
+const ganhoubloqueio = ref(false)
 
 const letras = ref([
   { id: 1, letra: "A", status: 'padrao', alt: ['Á', 'À', 'Ã', 'Â', 'Ä'] },
@@ -146,6 +193,7 @@ function chutar(letra) {
       acertos.value += 1;
       if (acertos.value === letrasCorretas.value.length) {
         ganhou.value = true
+        ganhoubloqueio.value = true
       }
     }
 
@@ -154,10 +202,9 @@ function chutar(letra) {
         chutes.value.push(letrasCorretas.value[lc])
         letra.status = "tem"
         acertos.value += 1;
-        console.log("acertos " + acertos.value)
-        console.log("tamanho " + letrasCorretas.value.length)
         if (acertos.value === letrasCorretas.value.length) {
           ganhou.value = true
+          ganhoubloqueio.value = true
         }
         break;
       }
@@ -170,13 +217,35 @@ function chutar(letra) {
     forcaTentativa.value += 1
     if (forcaTentativa.value === 6) {
       perdeu.value = true
+      perdeubloqueio.value = true
     }
   }
 
+}
 
+function gerarPalavra() {
+  palavra.value = "TESTE"
+}
 
+function tentarNovamente() {
 
+  for (let letra in letras.value) {
+    letras.value[letra].status = 'padrao';
+    console.log(letras.value[letra].status)
+  }
 
+  gerarPalavra();
+  acertos.value = 0;
+  forcaTentativa.value = 0;
+  chutes.value = [];
+  perdeu.value = false;
+  perdeubloqueio.value = false;
+  ganhou.value = false;
+  ganhoubloqueio.value = false;
+  letrasCorretas.value = [];
+  carregarLetrasCorretas();
+  console.log(palavra);
+  console.log(letrasCorretas);
 
 }
 
