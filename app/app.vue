@@ -32,7 +32,7 @@
 
       <!-- FORCA E PALAVRA -->
       <UContainer class="mb-10 flex flex-col gap-5 items-center justify-center">
-        <img :src="`/forca/${forcaTentativa}.png`" class="h-50 sm:h-60 pl-7" />
+        <img :src="`/desenhos/${forcaTentativa}.png`" class="h-50 sm:h-60 pl-7" />
         <div class="flex flex-wrap justify-center gap-1">
           <div :class="{ 'basis-full md:basis-0': letraPalavra == ' ' || letraPalavra == '-' }" class="group"
             v-for="(letraPalavra, i) in palavra" key="i">
@@ -92,7 +92,7 @@
               variant="subtle">
               A {{ palavraOuFrase }} era: {{ palavra }}
             </UBadge>
-            <img src="/forca/7.png" class="h-50" />
+            <img src="/desenhos/7.png" class="h-50" />
             <UButton icon="material-symbols:replay-rounded" @click="tentarNovamente"
               v-if="ganhoubloqueio || perdeubloqueio" :color="corPrimaria" class="mt-7 text-md font-bold text-white
             px-2 flex items-center justify-center">
@@ -116,7 +116,7 @@
               variant="subtle">
               A {{ palavraOuFrase }} era: {{ palavra }}
             </UBadge>
-            <img src="/forca/6.png" class="h-50 pl-7" />
+            <img src="/desenhos/6.png" class="h-50 pl-7" />
             <UButton icon="material-symbols:replay-rounded" @click="tentarNovamente"
               v-if="ganhoubloqueio || perdeubloqueio" :color="corPrimaria" class="mt-7 text-md font-bold text-white
             px-2 flex items-center justify-center">
