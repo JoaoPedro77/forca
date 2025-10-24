@@ -27,9 +27,7 @@
             <UCard variant="soft">
               <template #default>
                 <p class="text-center">
-                  Esse projeto foi feito sem nenhum fim lucrativo e as palavras utilizadas no jogo vem do (banco de
-                  palavras
-                  q n escolhi ainda).
+                  Esse projeto foi feito sem nenhum fim lucrativo, apenas como estudo e prática de desenvolvimento web.
                 </p>
               </template>
             </UCard>
@@ -56,6 +54,10 @@
               </UBadge>
               <UBadge icon="tabler:coffee" size="lg" class=" rounded-full" color="miku" variant="subtle">
                 Matt
+              </UBadge>
+              <UBadge icon="mdi:application-braces-outline" size="lg" class=" rounded-full" color="emerald"
+                variant="subtle">
+                Prode
               </UBadge>
             </div>
 

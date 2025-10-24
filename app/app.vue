@@ -33,22 +33,21 @@
       <!-- FORCA E PALAVRA -->
       <UContainer class="mb-10 flex flex-col gap-5 items-center justify-center">
         <img :src="`/forca/${forcaTentativa}.png`" class="h-50 sm:h-60 pl-7" />
-        <div class="flex flex-wrap gap-1">
-          <div v-for="(letraPalavra, i) in palavra" key="i">
+        <div class="flex flex-wrap justify-center gap-1">
+          <div :class="{ 'basis-full md:basis-0': letraPalavra == ' ' || letraPalavra == '-' }" class="group"
+            v-for="(letraPalavra, i) in palavra" key="i">
             <UBadge v-if="!chutes.some(l => letraPalavra.includes(l)) && letraPalavra != ' ' && letraPalavra != '-'"
               color="tertiary" variant="subtle" class="text-xl font-bold text-white
-              w-8 h-8 md:w-12 md:h-12 flex items-center justify-center p-0">
+              w-6 h-6 md:w-12 md:h-12 flex items-center justify-center p-0">
             </UBadge>
             <UBadge v-if="chutes.some(l => letraPalavra.includes(l)) && letraPalavra != ' ' && letraPalavra != '-'"
               :color="corPrimaria" variant="subtle" class="text-xl font-bold text-white
-              w-8 h-8 md:w-12 md:h-12 flex items-center justify-center p-0">
+              w-6 h-6 md:w-12 md:h-12 flex items-center justify-center p-0">
               {{ letraPalavra }}
             </UBadge>
-            <div v-if="letraPalavra == ' '" class="w-3 md:w-5  ">
+            <div v-if="letraPalavra == ' ' || letraPalavra == '-'" class="w-3 md:w-5 ">
             </div>
-            <div v-if="letraPalavra == '-'" class="h-8 w-5 flex items-center justify-center">
-              <div class="bg-stone-400 h-1 w-3 rounded-xs" />
-            </div>
+
           </div>
         </div>
         <UButton icon="material-symbols:replay-rounded" @click="tentarNovamente" v-if="ganhoubloqueio || perdeubloqueio"
@@ -67,11 +66,11 @@
         w-8 h-8 md:w-15 md:h-12 flex items-center justify-center p-0">
             {{ letra.letra }}
           </UButton>
-          <UButton v-if="letra.status === 'naoTem'" color="tertiary" disabled="" class="text-xl md:text-2xl font-bold text-white
-        w-8 h-8 md:w-15 md:h-12 flex items-center justify-center p-0">
+          <UButton v-if="letra.status === 'naoTem'" color="tertiary" disabled="" class="text-xl md:text-2xl md:rounded-xl font-bold text-white
+        w-8 h-8 md:w-15 md:h-12  flex items-center justify-center p-0">
             {{ letra.letra }}
           </UButton>
-          <UButton v-if="letra.status === 'tem'" color="success" disabled="" class="text-xl md:text-2xl font-bold text-white
+          <UButton v-if="letra.status === 'tem'" color="success" disabled="" class="text-xl md:text-2xl md:rounded-xl font-bold text-white
         w-8 h-8 md:w-15 md:h-12 flex items-center justify-center p-0">
             {{ letra.letra }}
           </UButton>
@@ -135,6 +134,9 @@
 <script setup>
 import { ref } from 'vue';
 
+const PalavrasForca = ref([]);
+
+
 
 // VARIÁVEIS 
 
@@ -170,32 +172,32 @@ const cores = [
 ];
 
 const letras = ref([
-  { id: 1, letra: "A", status: 'padrao', alt: ['Á', 'À', 'Ã', 'Â', 'Ä'] },
-  { id: 2, letra: "B", status: 'padrao', alt: [''] },
-  { id: 3, letra: "C", status: 'padrao', alt: ['Ç'] },
-  { id: 4, letra: "D", status: 'padrao', alt: [''] },
-  { id: 5, letra: "E", status: 'padrao', alt: ['É', 'È', 'Ê', 'Ë'] },
-  { id: 6, letra: "F", status: 'padrao', alt: [''] },
-  { id: 7, letra: "G", status: 'padrao', alt: [''] },
-  { id: 8, letra: "H", status: 'padrao', alt: [''] },
-  { id: 9, letra: "I", status: 'padrao', alt: ['Í', 'Ì', 'Î', 'Ï'] },
-  { id: 10, letra: "J", status: 'padrao', alt: [''] },
-  { id: 11, letra: "K", status: 'padrao', alt: [''] },
-  { id: 12, letra: "L", status: 'padrao', alt: [''] },
-  { id: 13, letra: "M", status: 'padrao', alt: [''] },
-  { id: 14, letra: "N", status: 'padrao', alt: [''] },
-  { id: 15, letra: "O", status: 'padrao', alt: ['Ó', 'Ò', 'Õ', 'Ô', 'Ö'] },
-  { id: 16, letra: "P", status: 'padrao', alt: [''] },
-  { id: 17, letra: "Q", status: 'padrao', alt: [''] },
-  { id: 18, letra: "R", status: 'padrao', alt: [''] },
-  { id: 19, letra: "S", status: 'padrao', alt: [''] },
-  { id: 20, letra: "T", status: 'padrao', alt: [''] },
-  { id: 21, letra: "U", status: 'padrao', alt: ['Ú', 'Ù', 'Û', 'Ü'] },
-  { id: 22, letra: "V", status: 'padrao', alt: [''] },
-  { id: 23, letra: "W", status: 'padrao', alt: [''] },
-  { id: 24, letra: "X", status: 'padrao', alt: [''] },
-  { id: 25, letra: "Y", status: 'padrao', alt: [''] },
-  { id: 26, letra: "Z", status: 'padrao', alt: [''] }
+  { id: 1, letra: "A", status: 'padrao', alt: ['A', 'Á', 'À', 'Ã', 'Â', 'Ä'] },
+  { id: 2, letra: "B", status: 'padrao', alt: ['B'] },
+  { id: 3, letra: "C", status: 'padrao', alt: ['C', 'Ç'] },
+  { id: 4, letra: "D", status: 'padrao', alt: ['D'] },
+  { id: 5, letra: "E", status: 'padrao', alt: ['E', 'É', 'È', 'Ê', 'Ë'] },
+  { id: 6, letra: "F", status: 'padrao', alt: ['F'] },
+  { id: 7, letra: "G", status: 'padrao', alt: ['G'] },
+  { id: 8, letra: "H", status: 'padrao', alt: ['H'] },
+  { id: 9, letra: "I", status: 'padrao', alt: ['I', 'Í', 'Ì', 'Î', 'Ï'] },
+  { id: 10, letra: "J", status: 'padrao', alt: ['J'] },
+  { id: 11, letra: "K", status: 'padrao', alt: ['K'] },
+  { id: 12, letra: "L", status: 'padrao', alt: ['L'] },
+  { id: 13, letra: "M", status: 'padrao', alt: ['M'] },
+  { id: 14, letra: "N", status: 'padrao', alt: ['N'] },
+  { id: 15, letra: "O", status: 'padrao', alt: ['O', 'Ó', 'Ò', 'Õ', 'Ô', 'Ö'] },
+  { id: 16, letra: "P", status: 'padrao', alt: ['P'] },
+  { id: 17, letra: "Q", status: 'padrao', alt: ['Q'] },
+  { id: 18, letra: "R", status: 'padrao', alt: ['R'] },
+  { id: 19, letra: "S", status: 'padrao', alt: ['S'] },
+  { id: 20, letra: "T", status: 'padrao', alt: ['T'] },
+  { id: 21, letra: "U", status: 'padrao', alt: ['U', 'Ú', 'Ù', 'Û', 'Ü'] },
+  { id: 22, letra: "V", status: 'padrao', alt: ['V'] },
+  { id: 23, letra: "W", status: 'padrao', alt: ['W'] },
+  { id: 24, letra: "X", status: 'padrao', alt: ['X'] },
+  { id: 25, letra: "Y", status: 'padrao', alt: ['Y'] },
+  { id: 26, letra: "Z", status: 'padrao', alt: ['Z'] }
 ]);
 
 
@@ -214,10 +216,10 @@ function carregarLetrasCorretas() {
 //verifica se tem as letras que foram chutadas
 function chutar(letra) {
 
-  //verifica se tem a letra
-  for (let p in letrasCorretas.value) {
-    if (letra.letra === letrasCorretas.value[p]) {
-      chutes.value.push(letra.letra)
+  //se tiver a letra ou algumva variação dela
+  for (let lc in letrasCorretas.value) {
+    if (letra.alt.includes(letrasCorretas.value[lc])) {
+      chutes.value.push(letrasCorretas.value[lc])
       letra.status = "tem"
       acertos.value += 1;
       if (acertos.value === letrasCorretas.value.length) {
@@ -226,21 +228,6 @@ function chutar(letra) {
         forcaTentativa.value = 7
       }
     }
-
-    // verifica se tem alguma variação da letra
-    for (let lc in letrasCorretas.value) {
-      if (letra.alt.includes(letrasCorretas.value[lc])) {
-        chutes.value.push(letrasCorretas.value[lc])
-        letra.status = "tem"
-        acertos.value += 1;
-        if (acertos.value === letrasCorretas.value.length) {
-          ganhou.value = true
-          ganhoubloqueio.value = true
-          forcaTentativa.value = 7
-        }
-      }
-    }
-    if (letra.status == "tem") { break }
   }
 
   //se n tiver a letra
@@ -252,14 +239,16 @@ function chutar(letra) {
       perdeubloqueio.value = true
     }
   }
-
 }
 
 // gera a palavra da vez
 function gerarPalavra() {
-  palavra.value = "T es-te-um"
-  tema.value = "geral"
-  iconeTema.value = "solar:earth-bold-duotone"
+
+  const palavraSorteada = PalavrasForca.value[Math.floor(Math.random() * PalavrasForca.value.length)];
+  palavra.value = palavraSorteada.palavra;
+  tema.value = palavraSorteada.tema;
+  iconeTema.value = palavraSorteada.iconeTema;
+
   palavra.value = palavra.value.toUpperCase();
   if (palavra.value.includes(' ')) {
     palavraOuFrase.value = "frase"
@@ -296,7 +285,13 @@ function carregarCorAleatoria() {
 
 // LIFECYCLE HOOKS
 
-onMounted(() => {
+onMounted(async () => {
+  await fetch('/PalavrasForca.json')
+    .then(res => res.json())
+    .then(data => {
+      PalavrasForca.value = data;
+    })
+
   carregarCorAleatoria();
   gerarPalavra();
   carregarLetrasCorretas();
