@@ -328,19 +328,6 @@ function tentarNovamente() {
   carregarLetrasCorretas();
 }
 
-// LIFECYCLE HOOKS
-
-onMounted(async () => {
-  await fetch('/palavras_forca.json')
-    .then(res => res.json())
-    .then(data => {
-      PalavrasForca.value = data;
-    })
-  console.log(PalavrasForca.value);
-  gerarPalavra();
-  carregarLetrasCorretas();
-})
-
 
 // TECLADO FÍSICO
 
@@ -353,20 +340,35 @@ function encontrarLetraPorTecla(teclaPressionada) {
   );
 }
 
+// LIFECYCLE HOOKS
 
-document.addEventListener('keydown', function (event) {
-  if (perdeubloqueio.value || ganhoubloqueio.value) {
-    return
-  }
-  if ((event.key.length === 1 && /[a-zA-ZÀ-ÿ-0-9]/.test(event.key))) {
-    event.preventDefault();
+onMounted(async () => {
+  await fetch('/palavras_forca.json')
+    .then(res => res.json())
+    .then(data => {
+      PalavrasForca.value = data;
+    })
+  console.log(PalavrasForca.value);
+  gerarPalavra();
+  carregarLetrasCorretas();
 
-    const letraEncontrada = encontrarLetraPorTecla(event.key);
-
-    if (letraEncontrada) {
-      chutar(letraEncontrada);
+  // detecta o teclado físico
+  document.addEventListener('keydown', function (event) {
+    if (perdeubloqueio.value || ganhoubloqueio.value) {
+      return
     }
-  }
-});
+    if ((event.key.length === 1 && /[a-zA-ZÀ-ÿ-0-9]/.test(event.key))) {
+      event.preventDefault();
+
+      const letraEncontrada = encontrarLetraPorTecla(event.key);
+
+      if (letraEncontrada) {
+        chutar(letraEncontrada);
+      }
+    }
+  });
+
+})
+
 
 </script>

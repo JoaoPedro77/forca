@@ -535,15 +535,6 @@ watchEffect(() => {
 });
 
 
-// LIFECYCLE HOOKS
-
-onMounted(async () => {
-  gerarPalavra();
-  carregarLetrasCorretas();
-})
-
-
-
 // forms
 
 
@@ -586,20 +577,29 @@ function encontrarLetraPorTecla(teclaPressionada) {
   );
 }
 
+// LIFECYCLE HOOKS
 
-document.addEventListener('keydown', function (event) {
-  if (perdeubloqueio.value || ganhoubloqueio.value || !definiuPalavra.value) {
-    return
-  }
-  if ((event.key.length === 1 && /[a-zA-ZÀ-ÿ-0-9]/.test(event.key))) {
-    event.preventDefault();
+onMounted(async () => {
+  gerarPalavra();
+  carregarLetrasCorretas();
 
-    const letraEncontrada = encontrarLetraPorTecla(event.key);
-
-    if (letraEncontrada) {
-      chutar(letraEncontrada);
+  // detecta o teclado físico
+  document.addEventListener('keydown', function (event) {
+    if (perdeubloqueio.value || ganhoubloqueio.value || !definiuPalavra.value) {
+      return
     }
-  }
-});
+    if ((event.key.length === 1 && /[a-zA-ZÀ-ÿ-0-9]/.test(event.key))) {
+      event.preventDefault();
+
+      const letraEncontrada = encontrarLetraPorTecla(event.key);
+
+      if (letraEncontrada) {
+        chutar(letraEncontrada);
+      }
+    }
+  });
+
+})
+
 
 </script>
