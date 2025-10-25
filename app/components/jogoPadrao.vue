@@ -149,14 +149,16 @@ const PalavrasForca = ref([]);
 
 // VARIÁVEIS 
 
-const corPrimaria = ref("primary");
+defineProps({
+  corPrimaria: String
+})
 
 const palavra = ref("");
 const palavraOuFrase = ref("");
 const tema = ref("");
 const iconeTema = ref("");
 
-const letrasCorretas = ref([]);
+let letrasCorretas = [];
 const acertos = ref(0);
 
 const forcaTentativa = ref(0);
@@ -167,19 +169,6 @@ const perdeu = ref(false);
 const perdeubloqueio = ref(false);
 const ganhou = ref(false);
 const ganhoubloqueio = ref(false);
-
-const cores = [
-  "primary",
-  "red",
-  "orange",
-  "emerald",
-  "miku",
-  "blue",
-  "indigo",
-  "violet",
-  "purple",
-  "pink",
-];
 
 const letras = ref([
 
@@ -217,8 +206,8 @@ const letras = ref([
 //poe as letras corretas na array letrasCorretas
 function carregarLetrasCorretas() {
   for (let p in palavra.value) {
-    if (!(letrasCorretas.value.includes(palavra.value[p])) && palavra.value[p] != ' ' && palavra.value[p] != '-' && palavra.value[p] != `'`) {
-      letrasCorretas.value.push(palavra.value[p])
+    if (!(letrasCorretas.includes(palavra.value[p])) && palavra.value[p] != ' ' && palavra.value[p] != '-' && palavra.value[p] != `'`) {
+      letrasCorretas.push(palavra.value[p])
     }
   }
   console.log(letrasCorretas)
@@ -228,12 +217,12 @@ function carregarLetrasCorretas() {
 function chutar(letra) {
 
   //se tiver a letra ou algumva variação dela
-  for (let lc in letrasCorretas.value) {
-    if (letra.alt.includes(letrasCorretas.value[lc])) {
-      chutes.value.push(letrasCorretas.value[lc])
+  for (let lc in letrasCorretas) {
+    if (letra.alt.includes(letrasCorretas[lc])) {
+      chutes.value.push(letrasCorretas[lc])
       letra.status = "tem"
       acertos.value += 1;
-      if (acertos.value === letrasCorretas.value.length) {
+      if (acertos.value === letrasCorretas.length) {
         ganhou.value = true
         ganhoubloqueio.value = true
         forcaTentativa.value = 7
@@ -334,16 +323,10 @@ function tentarNovamente() {
   perdeubloqueio.value = false;
   ganhou.value = false;
   ganhoubloqueio.value = false;
-  letrasCorretas.value = [];
+  letrasCorretas = [];
   erros.value = 0;
   carregarLetrasCorretas();
 }
-
-//carrega cor aleatória
-function carregarCorAleatoria() {
-  corPrimaria.value = cores[Math.floor(Math.random() * cores.length)]
-}
-
 
 // LIFECYCLE HOOKS
 
@@ -354,9 +337,36 @@ onMounted(async () => {
       PalavrasForca.value = data;
     })
   console.log(PalavrasForca.value);
-  carregarCorAleatoria();
   gerarPalavra();
   carregarLetrasCorretas();
 })
+
+
+// TECLADO FÍSICO
+
+function encontrarLetraPorTecla(teclaPressionada) {
+  const tecla = teclaPressionada.toUpperCase();
+
+  return letras.value.find(letra =>
+    letra.alt.includes(tecla) || //maldito ç, morra ç
+    letra.letra === tecla
+  );
+}
+
+
+document.addEventListener('keydown', function (event) {
+  if (perdeubloqueio.value || ganhoubloqueio.value) {
+    return
+  }
+  if ((event.key.length === 1 && /[a-zA-ZÀ-ÿ-0-9]/.test(event.key))) {
+    event.preventDefault();
+
+    const letraEncontrada = encontrarLetraPorTecla(event.key);
+
+    if (letraEncontrada) {
+      chutar(letraEncontrada);
+    }
+  }
+});
 
 </script>

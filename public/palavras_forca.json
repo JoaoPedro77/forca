@@ -47,6 +47,7 @@
   { "palavra": "espanha", "tema": "geral", "iconeTema": "mdi-earth" },
   { "palavra": "raiva", "tema": "geral", "iconeTema": "mdi-earth" },
   { "palavra": "cantar", "tema": "geral", "iconeTema": "mdi-earth" },
+  { "palavra": "hatsune miku", "tema": "geral", "iconeTema": "mdi-earth" },
   { "palavra": "marrocos", "tema": "geral", "iconeTema": "mdi-earth" },
   { "palavra": "bravo", "tema": "geral", "iconeTema": "mdi-earth" },
   { "palavra": "preto", "tema": "geral", "iconeTema": "mdi-earth" },
@@ -3408,721 +3409,783 @@
   {
     "palavra": "game of thrones",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "stranger things",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "la casa de papel",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "breaking bad",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "the crown",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "friends",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "o poderoso chefão",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "star wars",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "harry potter",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "titanic",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "jurassic park",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "avatar",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "o senhor dos anéis",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "matrix",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "pulp fiction",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "a viagem de chihiro",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "naruto",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "one piece",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "dragon ball",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "attack on titan",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "death note",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "demon slayer",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "jujutsu kaisen",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "my hero academia",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "tokyo ghoul",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "cowboy bebop",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "fullmetal alchemist",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "a bruxa de blair",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "o exorcista",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "psicose",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "alien o oitavo passageiro",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "predador",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "corra que a polícia vem aí",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "gente grande",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "se beber não case",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "todo mundo em pânico",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "a noiva cadáver",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "toy story",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "up altas aventuras",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "procurando nemo",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "wall e",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "divertida mente",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "os incríveis",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "monstros sa",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
-  { "palavra": "shrek", "tema": "entretenimento", "iconeTema": "tabler:movie" },
+  {
+    "palavra": "shrek",
+    "tema": "entretenimento",
+    "iconeTema": "streamline-block:smileys-happy"
+  },
   {
     "palavra": "kung fu panda",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "como treinar seu dragão",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "a era do gelo",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "madagascar",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "velozes e furiosos",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "missão impossível",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "o terminal",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "um sonho de liberdade",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "forrest gump",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "a lista de schindler",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "clube da luta",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "inception",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "interestelar",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "parasita",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "guerra civil",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "vingadores ultimato",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "pantera negra",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "doutor estranho",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "homem-aranha",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "batman",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "superman",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "mulher maravilha",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
-  { "palavra": "flash", "tema": "entretenimento", "iconeTema": "tabler:movie" },
+  {
+    "palavra": "flash",
+    "tema": "entretenimento",
+    "iconeTema": "streamline-block:smileys-happy"
+  },
   {
     "palavra": "liga da justiça",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "walking dead",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "the last of us",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "westworld",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "os simpsons",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "south park",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "family guy",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "rick e morty",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "bojack horseman",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "one punch man",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "bleach",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "fairy tail",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "hunter x hunter",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "yu yu hakusho",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "sailor moon",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "pokemon",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "digimon",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "evangelion",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "code geass",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "tokyo revengers",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "haikyuu",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "kuroko no basket",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
-  { "palavra": "baki", "tema": "entretenimento", "iconeTema": "tabler:movie" },
+  {
+    "palavra": "baki",
+    "tema": "entretenimento",
+    "iconeTema": "streamline-block:smileys-happy"
+  },
   {
     "palavra": "record of ragnarok",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "jojo's bizarre adventure",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "berserk",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "vagabond",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "slam dunk",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "os cavaleiros do zodíaco",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "o incrível hulk",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "blade runner",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "mad max",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "laranja mecânica",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "taxi driver",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "scorsese",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "spielberg",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "tarantino",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "hitchcock",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "kubrick",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
-  { "palavra": "oscar", "tema": "entretenimento", "iconeTema": "tabler:movie" },
+  {
+    "palavra": "oscar",
+    "tema": "entretenimento",
+    "iconeTema": "streamline-block:smileys-happy"
+  },
   {
     "palavra": "globo de ouro",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
-  { "palavra": "emmy", "tema": "entretenimento", "iconeTema": "tabler:movie" },
+  {
+    "palavra": "emmy",
+    "tema": "entretenimento",
+    "iconeTema": "streamline-block:smileys-happy"
+  },
   {
     "palavra": "festival de cannes",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
-  { "palavra": "bafta", "tema": "entretenimento", "iconeTema": "tabler:movie" },
-  { "palavra": "ator", "tema": "entretenimento", "iconeTema": "tabler:movie" },
-  { "palavra": "atriz", "tema": "entretenimento", "iconeTema": "tabler:movie" },
+  {
+    "palavra": "bafta",
+    "tema": "entretenimento",
+    "iconeTema": "streamline-block:smileys-happy"
+  },
+  {
+    "palavra": "ator",
+    "tema": "entretenimento",
+    "iconeTema": "streamline-block:smileys-happy"
+  },
+  {
+    "palavra": "atriz",
+    "tema": "entretenimento",
+    "iconeTema": "streamline-block:smileys-happy"
+  },
   {
     "palavra": "diretor",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "roteirista",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "produtor",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "câmera",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "iluminação",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "figurino",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "maquiagem",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "edição",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "trilha sonora",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "cinema mudo",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "filme preto e branco",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "curta-metragem",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "longa-metragem",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "documentário",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "animação",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "ficção científica",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "fantasia",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "terror",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "comédia",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
-  { "palavra": "drama", "tema": "entretenimento", "iconeTema": "tabler:movie" },
+  {
+    "palavra": "drama",
+    "tema": "entretenimento",
+    "iconeTema": "streamline-block:smileys-happy"
+  },
   {
     "palavra": "romance",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "suspense",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
-  { "palavra": "ação", "tema": "entretenimento", "iconeTema": "tabler:movie" },
+  {
+    "palavra": "ação",
+    "tema": "entretenimento",
+    "iconeTema": "streamline-block:smileys-happy"
+  },
   {
     "palavra": "thriller",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "musical",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "western",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "série limitada",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "minissérie",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "sitcom",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "reality show",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "talk show",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "novela",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "telejornal",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "revista eletrônica",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "programa de auditório",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
   {
     "palavra": "desenho animado",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
-  { "palavra": "anime", "tema": "entretenimento", "iconeTema": "tabler:movie" },
-  { "palavra": "mangá", "tema": "entretenimento", "iconeTema": "tabler:movie" },
+  {
+    "palavra": "anime",
+    "tema": "entretenimento",
+    "iconeTema": "streamline-block:smileys-happy"
+  },
+  {
+    "palavra": "mangá",
+    "tema": "entretenimento",
+    "iconeTema": "streamline-block:smileys-happy"
+  },
+  {
+    "palavra": "hatsune miku",
+    "tema": "entretenimento",
+    "iconeTema": "streamline-block:smileys-happy"
+  },
+  {
+    "palavra": "vocaloid",
+    "tema": "entretenimento",
+    "iconeTema": "streamline-block:smileys-happy"
+  },
   {
     "palavra": "graphic novel",
     "tema": "entretenimento",
-    "iconeTema": "tabler:movie"
+    "iconeTema": "streamline-block:smileys-happy"
   },
-  { "palavra": "hq", "tema": "entretenimento", "iconeTema": "tabler:movie" },
+  {
+    "palavra": "hq",
+    "tema": "entretenimento",
+    "iconeTema": "streamline-block:smileys-happy"
+  },
 
   { "palavra": "internet", "tema": "tecnologia", "iconeTema": "mdi-robot" },
   { "palavra": "computador", "tema": "tecnologia", "iconeTema": "mdi-robot" },
@@ -4575,7 +4638,7 @@
     "tema": "jogos",
     "iconeTema": "bxs:game"
   },
-  { "palavra": "simulador", "tema": "jogos", "iconeTema": "bxs:game" },
+  { "palavra": "simulador", "tema": "jogos e ", "iconeTema": "bxs:game" },
   { "palavra": "plataforma", "tema": "jogos", "iconeTema": "bxs:game" },
   { "palavra": "aventura", "tema": "jogos", "iconeTema": "bxs:game" },
   {
@@ -4656,18 +4719,7 @@
   { "palavra": "troféu", "tema": "jogos", "iconeTema": "bxs:game" },
   { "palavra": "game over", "tema": "jogos", "iconeTema": "bxs:game" },
   { "palavra": "pause", "tema": "jogos", "iconeTema": "bxs:game" },
-  {
-    "palavra": "menu principal",
-    "tema": "jogos",
-    "iconeTema": "bxs:game"
-  },
-  { "palavra": "opções", "tema": "jogos", "iconeTema": "bxs:game" },
-  { "palavra": "créditos", "tema": "jogos", "iconeTema": "bxs:game" },
   { "palavra": "joystick", "tema": "jogos", "iconeTema": "bxs:game" },
-  { "palavra": "controle", "tema": "jogos", "iconeTema": "bxs:game" },
-  { "palavra": "teclado", "tema": "jogos", "iconeTema": "bxs:game" },
-  { "palavra": "mouse", "tema": "jogos", "iconeTema": "bxs:game" },
-  { "palavra": "headset", "tema": "jogos", "iconeTema": "bxs:game" },
   { "palavra": "óculos vr", "tema": "jogos", "iconeTema": "bxs:game" },
   { "palavra": "gamepad", "tema": "jogos", "iconeTema": "bxs:game" },
   { "palavra": "arcade", "tema": "jogos", "iconeTema": "bxs:game" },
@@ -4694,17 +4746,9 @@
   { "palavra": "blizzard", "tema": "jogos", "iconeTema": "bxs:game" },
   { "palavra": "valve", "tema": "jogos", "iconeTema": "bxs:game" },
   { "palavra": "fromsoftware", "tema": "jogos", "iconeTema": "bxs:game" },
-  {
-    "palavra": "kojima productions",
-    "tema": "jogos",
-    "iconeTema": "bxs:game"
-  },
+
   { "palavra": "hideo kojima", "tema": "jogos", "iconeTema": "bxs:game" },
-  {
-    "palavra": "shigeru miyamoto",
-    "tema": "jogos",
-    "iconeTema": "bxs:game"
-  },
+
   { "palavra": "halo", "tema": "jogos", "iconeTema": "bxs:game" },
   { "palavra": "gears of war", "tema": "jogos", "iconeTema": "bxs:game" },
   {
@@ -4715,6 +4759,9 @@
   { "palavra": "sekiro", "tema": "jogos", "iconeTema": "bxs:game" },
   { "palavra": "elden ring", "tema": "jogos", "iconeTema": "bxs:game" },
   { "palavra": "bloodborne", "tema": "jogos", "iconeTema": "bxs:game" },
+  { "palavra": "bloons", "tema": "jogos", "iconeTema": "bxs:game" },
+  { "palavra": "bloons td 5", "tema": "jogos", "iconeTema": "bxs:game" },
+  { "palavra": "bloons td 6", "tema": "jogos", "iconeTema": "bxs:game" },
   { "palavra": "dark souls", "tema": "jogos", "iconeTema": "bxs:game" },
   {
     "palavra": "metal gear solid",
@@ -4877,6 +4924,8 @@
   { "palavra": "madden", "tema": "jogos", "iconeTema": "bxs:game" },
   { "palavra": "overwatch", "tema": "jogos", "iconeTema": "bxs:game" },
   { "palavra": "valorant", "tema": "jogos", "iconeTema": "bxs:game" },
+  { "palavra": "riot games", "tema": "jogos", "iconeTema": "bxs:game" },
+  { "palavra": "rito gomes", "tema": "jogos", "iconeTema": "bxs:game" },
   {
     "palavra": "counter-strike",
     "tema": "jogos",
@@ -4889,5 +4938,46 @@
   },
   { "palavra": "dota 2", "tema": "jogos", "iconeTema": "bxs:game" },
   { "palavra": "fortnite", "tema": "jogos", "iconeTema": "bxs:game" },
-  { "palavra": "apex legends", "tema": "jogos", "iconeTema": "bxs:game" }
+  { "palavra": "apex legends", "tema": "jogos", "iconeTema": "bxs:game" },
+  { "palavra": "shantae", "tema": "jogos", "iconeTema": "bxs:game" },
+  { "palavra": "hollow knight", "tema": "jogos", "iconeTema": "bxs:game" },
+  { "palavra": "celeste", "tema": "jogos", "iconeTema": "bxs:game" },
+  { "palavra": "dead cells", "tema": "jogos", "iconeTema": "bxs:game" },
+  { "palavra": "undertale", "tema": "jogos", "iconeTema": "bxs:game" },
+  { "palavra": "stardew valley", "tema": "jogos", "iconeTema": "bxs:game" },
+  { "palavra": "terraria", "tema": "jogos", "iconeTema": "bxs:game" },
+  { "palavra": "among us", "tema": "jogos", "iconeTema": "bxs:game" },
+  { "palavra": "fall guys", "tema": "jogos", "iconeTema": "bxs:game" },
+  { "palavra": "rocket league", "tema": "jogos", "iconeTema": "bxs:game" },
+  { "palavra": "cyberpunk 2077", "tema": "jogos", "iconeTema": "bxs:game" },
+  { "palavra": "doom eternal", "tema": "jogos", "iconeTema": "bxs:game" },
+  { "palavra": "sea of thieves", "tema": "jogos", "iconeTema": "bxs:game" },
+  { "palavra": "ghost of tsushima", "tema": "jogos", "iconeTema": "bxs:game" },
+  { "palavra": "death stranding", "tema": "jogos", "iconeTema": "bxs:game" },
+  {
+    "palavra": "another crab's treasure",
+    "tema": "jogos",
+    "iconeTema": "bxs:game"
+  },
+  { "palavra": "brawlhalla", "tema": "jogos", "iconeTema": "bxs:game" },
+  { "palavra": "brawl stars", "tema": "jogos", "iconeTema": "bxs:game" },
+  { "palavra": "muse dash", "tema": "jogos", "iconeTema": "bxs:game" },
+  { "palavra": "guitar hero", "tema": "jogos", "iconeTema": "bxs:game" },
+  { "palavra": "rock band", "tema": "jogos", "iconeTema": "bxs:game" },
+  { "palavra": "just dance", "tema": "jogos", "iconeTema": "bxs:game" },
+  {
+    "palavra": "dance dance revolution",
+    "tema": "jogos",
+    "iconeTema": "bxs:game"
+  },
+  { "palavra": "beat saber", "tema": "jogos", "iconeTema": "bxs:game" },
+  { "palavra": "superhot", "tema": "jogos", "iconeTema": "bxs:game" },
+  { "palavra": "half life", "tema": "jogos", "iconeTema": "bxs:game" },
+  { "palavra": "portal", "tema": "jogos", "iconeTema": "bxs:game" },
+  { "palavra": "left 4 dead", "tema": "jogos", "iconeTema": "bxs:game" },
+  { "palavra": "team fortress 2", "tema": "jogos", "iconeTema": "bxs:game" },
+  { "palavra": "peak", "tema": "jogos", "iconeTema": "bxs:game" },
+  { "palavra": "project diva", "tema": "jogos", "iconeTema": "bxs:game" },
+  { "palavra": "hatsune miku", "tema": "jogos", "iconeTema": "bxs:game" },
+  { "palavra": "rhythm heaven", "tema": "jogos", "iconeTema": "bxs:game" }
 ]

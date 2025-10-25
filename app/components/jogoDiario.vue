@@ -1,5 +1,6 @@
 <template>
 
+
   <!-- TEMA E RESULTADO FIMDE JOGO -->
   <UContainer class="pt-10 gap-2 flex flex-col items-center justify-center">
     <USeparator class=" w-40">
@@ -9,7 +10,7 @@
         <span v-if="ganhoubloqueio" class="text-xs font-light text-stone-500">Ganhou!!!</span>
       </template>
     </USeparator>
-    <UBadge v-if="!perdeubloqueio && !ganhoubloqueio" :icon="iconePersonalizado" size="xl" class=" rounded-full"
+    <UBadge v-if="!perdeubloqueio && !ganhoubloqueio" :icon="iconeTema" size="xl" class=" rounded-full"
       :color="corPrimaria" variant="subtle">
       {{ tema }}
     </UBadge>
@@ -53,13 +54,6 @@
           px-2 flex items-center justify-center">
       Jogar Novamente
     </UButton>
-
-
-    <UButton icon="solar:pen-2-outline" @click="() => { vaiDefinirPalavra = !vaiDefinirPalavra }" v-if="!definiuPalavra"
-      :color="corPrimaria" class="text-md font-bold text-white
-          px-2 flex items-center justify-center">
-      Definir palavra
-    </UButton>
   </UContainer>
 
 
@@ -68,7 +62,7 @@
     <div :class="{ 'basis-full pb-2': letra.letra == ' ' }" v-for="letra in letras" key="id">
 
       <UButton @click="chutar(letra)" v-if="letra.status === 'padrao' && letra.letra != ' '"
-        :disabled="perdeubloqueio || ganhoubloqueio || !definiuPalavra" :color="corPrimaria" :class="[
+        :disabled="perdeubloqueio || ganhoubloqueio" :color="corPrimaria" :class="[
           'text-xl md:text-2xl font-bold text-white flex items-center justify-center p-0',
           /\d/.test(letra.letra) ? 'w-7 h-7 md:w-13 md:h-11 m-0.5 md:m-1' : 'w-8 h-8 md:w-15 md:h-12 m-0.5 xs:m-1'
         ]">
@@ -144,58 +138,25 @@
     </template>
   </UModal>
 
-
-  <UModal :open="vaiDefinirPalavra" :close="{ onClick: () => vaiDefinirPalavra = false }">
-    <template #content>
-      <div class="flex flex-col gap-2 items-center justify-center p-5">
-        <UBadge size="xl" class="px-4 rounded-2xl text-center" :color="corPrimaria" variant="subtle">
-          MODO PERSONALIZADO
-        </UBadge>
-        <span class="text-center mb-4">por favor, defina uma palavra ou frase para começar o jogo!</span>
-        <UForm :validate="validate" class="flex flex-col items-center justify-center space-y-1" @submit="onSubmit">
-
-          <UFormField label="Palavra" name="palavra">
-            <UInput :color="corPrimaria" v-model="palavra" type="text" :autocomplete="false"
-              class="font-yarndings w-60 sm:w-xs md:text-xl" :size="tamanhoinput" />
-          </UFormField>
-
-          <UFormField label="Tema" name="tema">
-            <UInput :color="corPrimaria" v-model="tema" type="text" :size="tamanhoinput"
-              class="w-60 sm:w-xs md:text-xl" />
-          </UFormField>
-
-
-
-          <div class=" space-x-2 md:space-x-4">
-            <UButton class="mt-4" :size="tamanhoinput" label="cancelar" color="tertiary"
-              @click="() => { vaiDefinirPalavra = !vaiDefinirPalavra; if (tema == '' || tema == ' ') tema = 'personalizado' }" />
-            <UButton class="mt-4" :size="tamanhoinput" label="Iniciar jogo!" :color="corPrimaria" type="submit" />
-          </div>
-        </UForm>
-      </div>
-    </template>
-  </UModal>
-
 </template>
 
 <script setup>
 import { ref } from 'vue';
-import { useMediaQuery } from '@vueuse/core'
+
+const PalavrasForca = ref([]);
+
+
+
+// VARIÁVEIS 
 
 defineProps({
   corPrimaria: String
 })
 
-// VARIÁVEIS 
-
-
-const iconePersonalizado = ref("");
-
 const palavra = ref("");
 const palavraOuFrase = ref("");
-const tema = ref("Geral");
-
-const definiuPalavra = ref(false);
+const tema = ref("");
+const iconeTema = ref("");
 
 let letrasCorretas = [];
 const acertos = ref(0);
@@ -208,20 +169,6 @@ const perdeu = ref(false);
 const perdeubloqueio = ref(false);
 const ganhou = ref(false);
 const ganhoubloqueio = ref(false);
-const vaiDefinirPalavra = ref(false);
-
-const cores = [
-  "primary",
-  "red",
-  "orange",
-  "emerald",
-  "miku",
-  "blue",
-  "indigo",
-  "violet",
-  "purple",
-  "pink",
-];
 
 const letras = ref([
 
@@ -298,7 +245,10 @@ function chutar(letra) {
 // gera a palavra da vez
 function gerarPalavra() {
 
-
+  const palavraSorteada = PalavrasForca.value[Math.floor(Math.random() * PalavrasForca.value.length)];
+  palavra.value = palavraSorteada.palavra;
+  tema.value = palavraSorteada.tema;
+  iconeTema.value = palavraSorteada.iconeTema;
 
   palavra.value = palavra.value.toUpperCase();
   if (palavra.value.includes(' ')) {
@@ -330,13 +280,8 @@ function gerarPalavra() {
   }
 }
 
-
 //reinicia valores pra tentar novamente.
 function tentarNovamente() {
-  definiuPalavra.value = false;
-
-  palavra.value = ''
-
   letras.value = [
 
     { id: 11, letra: "A", status: 'padrao', alt: ['A', 'Á', 'À', 'Ã', 'Â', 'Ä'] },
@@ -383,195 +328,17 @@ function tentarNovamente() {
   carregarLetrasCorretas();
 }
 
-function gerarIconePorTema(tema) {
-  const temaNormalizado = tema.value.toLowerCase().trim();
-
-  const mapeamentoTemas = {
-    // Geral
-    'geral': 'mdi-earth',
-    'global': 'mdi-earth',
-    'universal': 'mdi-earth',
-    'universo': 'mdi-earth',
-    'mundo': 'mdi-earth',
-    // Natureza
-    'natureza': 'mdi-leaf',
-    'meio ambiente': 'mdi-leaf',
-    'ambiental': 'mdi-leaf',
-    'ecologia': 'mdi-leaf',
-
-    // Viagens
-    'viagens': 'mdi-airplane',
-    'viagem': 'mdi-airplane',
-    'turismo': 'mdi-airplane',
-
-    // Esportes
-    'esportes': 'mdi-basketball',
-    'esporte': 'mdi-basketball',
-    'atividade física': 'mdi-basketball',
-    'atividade fisica': 'mdi-basketball',
-    'fitness': 'mdi-basketball',
-    // Música
-    'música': 'mdi-music-note',
-    'music': 'mdi-music-note',
-    'musica': 'mdi-music-note',
-    'musicas': 'mdi-music-note',
-    'canção': 'mdi-music-note',
-    'cancão': 'mdi-music-note',
-    'cancao': 'mdi-music-note',
-    'melodia': 'mdi-music-note',
-    'song': 'mdi-music-note',
-
-    // livros
-    'livros': 'mdi-book-open-page-variant',
-    'livro': 'mdi-book-open-page-variant',
-    'literatura': 'mdi-book-open-page-variant',
-    'história': 'mdi-book-open-page-variant',
-    'historia': 'mdi-book-open-page-variant',
-
-    // amores
-    'amor': 'mdi-heart',
-    'amores': 'mdi-heart',
-    'romance': 'mdi-heart',
-    'paixão': 'mdi-heart',
-    'paixao': 'mdi-heart',
-    'relacionamento': 'mdi-heart',
-    'relacionamentos': 'mdi-heart',
-    'sexo': 'solar:fire-bold-duotone',
-
-    // mitinho
-    'mitinho': 'line-md:watch-loop',
-    'mitin': 'line-md:watch-loop',
-    'pisca': 'line-md:watch-loop',
-    'blink': 'line-md:watch-loop',
-    'pisquinha': 'line-md:watch-loop',
-    'goat': 'line-md:watch-loop',
-
-    // Objetos
-    'objetos': 'mdi-cube-outline',
-    'objeto': 'mdi-cube-outline',
-    'coisas': 'mdi-cube-outline',
-    'itens': 'mdi-cube-outline',
-    'item': 'mdi-cube-outline',
-
-    // Alimentos
-    'alimentos': 'ic:round-fastfood',
-    'alimento': 'ic:round-fastfood',
-    'comida': 'ic:round-fastfood',
-    'comidas': 'ic:round-fastfood',
-    'culinária': 'ic:round-fastfood',
-    'culinaria': 'ic:round-fastfood',
-    'gastronomia': 'ic:round-fastfood',
-    'merenda': 'ic:round-fastfood',
-
-    // Animais
-    'animais': 'mdi-paw',
-    'animal': 'mdi-paw',
-    'fauna': 'mdi-paw',
-    'bichos': 'mdi-paw',
-    'pets': 'mdi-paw',
-
-    // Entretenimento
-    'entretenimento': 'tabler:movie',
-    'entreterimento': 'tabler:movie',
-
-    'diversão': 'tabler:movie',
-    'diversao': 'tabler:movie',
-
-    'cinema': 'tabler:movie',
-    'filme': 'tabler:movie',
-    'filmes': 'tabler:movie',
-
-    'anime': 'streamline-flex:japanese-alphabet-solid',
-    'animes': 'streamline-flex:japanese-alphabet-solid',
-
-    'livros': 'mdi-book-open-page-variant',
-    'livro': 'mdi-book-open-page-variant',
-    'literatura': 'mdi-book-open-page-variant',
-
-    'mangá': 'streamline:religion-shinto-religion-gate-culture-shinto-japan-japanese-shrine',
-    'manga': 'streamline:religion-shinto-religion-gate-culture-shinto-japan-japanese-shrine',
-    'japao': 'streamline:religion-shinto-religion-gate-culture-shinto-japan-japanese-shrine',
-    'japão': 'streamline:religion-shinto-religion-gate-culture-shinto-japan-japanese-shrine',
-    'japan': 'streamline:religion-shinto-religion-gate-culture-shinto-japan-japanese-shrine',
-
-    // Tecnologia
-    'tecnologia': 'mdi-robot',
-    'tech': 'mdi-robot',
-    'tecnológico': 'mdi-robot',
-    'tecnologico': 'mdi-robot',
-    'ciência': 'mdi-robot',
-    'ciencia': 'mdi-robot',
-    'inovação': 'mdi-robot',
-    'inovacao': 'mdi-robot',
-
-    // Jogos
-    'jogos': 'bxs:game',
-    'jogo': 'bxs:game',
-    'games': 'bxs:game',
-    'game': 'bxs:game',
-    'videogame': 'bxs:game',
-    'video game': 'bxs:game',
-    'video-game': 'bxs:game',
-    'gaming': 'bxs:game',
-
-
-    // brasil
-
-    'brasil': 'game-icons:brazil-flag',
-    'brazil': 'game-icons:brazil-flag',
-    'brasileiro': 'game-icons:brazil-flag',
-    'brasileira': 'game-icons:brazil-flag',
-    'brasileiros': 'game-icons:brazil-flag',
-    'brasileiras': 'game-icons:brazil-flag',
-    'coisas brasileiras': 'game-icons:brazil-flag',
-
-  };
-
-  return mapeamentoTemas[temaNormalizado] || 'solar:pen-new-square-linear';
-}
-
-watchEffect(() => {
-  iconePersonalizado.value = gerarIconePorTema(tema);
-});
-
-
 // LIFECYCLE HOOKS
 
 onMounted(async () => {
+  await fetch('/palavras_forca.json')
+    .then(res => res.json())
+    .then(data => {
+      PalavrasForca.value = data;
+    })
+  console.log(PalavrasForca.value);
   gerarPalavra();
   carregarLetrasCorretas();
-})
-
-
-
-// forms
-
-
-const validate = () => {
-  const errors = []
-  if (!palavra.value) errors.push({ name: 'palavra', message: 'Por favor digite uma palavra válida' })
-  if (!tema.value) errors.push({ name: 'tema', message: 'Por favor insira o tema' })
-  return errors
-}
-
-async function onSubmit() {
-  vaiDefinirPalavra.value = !vaiDefinirPalavra.value
-  definiuPalavra.value = true;
-  gerarPalavra();
-  carregarLetrasCorretas();
-
-}
-
-
-//responsivo
-
-const isLarge = useMediaQuery('(min-width: 1024px)')
-const isMedium = useMediaQuery('(min-width: 768px)')
-
-const tamanhoinput = computed(() => {
-  if (isLarge.value) return 'xl'
-  if (isMedium.value) return 'lg'
-  return 'md'
 })
 
 
